@@ -1,0 +1,69 @@
+{
+  "name": "demo-api-scalar-galaxy-cli",
+  "version": "0.1.0",
+  "description": "The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It's a fictional universe with fictional planets and fictional data.",
+  "author": "Demo API Scalar Galaxy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amritk/devcli-brewtest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amritk/devcli-brewtest/issues"
+  },
+  "homepage": "https://github.com/amritk/devcli-brewtest",
+  "type": "module",
+  "bin": {
+    "devcli": "./dist/esm/bin.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "api.md",
+    "man",
+    "SKILL.md"
+  ],
+  "man": [
+    "./man/devcli.1",
+    "./man/devcli-login.1",
+    "./man/devcli-logout.1",
+    "./man/devcli-planets-list-all-data.1",
+    "./man/devcli-planets-create.1",
+    "./man/devcli-planets-retrieve.1",
+    "./man/devcli-planets-update.1",
+    "./man/devcli-planets-delete.1",
+    "./man/devcli-planets-upload-image.1",
+    "./man/devcli-celestial-bodies-create.1",
+    "./man/devcli-authentication-create-user.1",
+    "./man/devcli-authentication-create-token.1",
+    "./man/devcli-authentication-list-me.1",
+    "./man/devcli-environments.1",
+    "./man/devcli-completion.1",
+    "./man/devcli-upgrade.1",
+    "./man/devcli-uninstall.1"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/finalize-build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.cjs.json --noEmit"
+  },
+  "dependencies": {
+    "ansis": "^4.3.0",
+    "commander": "^14.0.3",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^6.0.0"
+  },
+  "license": "Apache-2.0"
+}

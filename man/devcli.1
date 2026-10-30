@@ -1,0 +1,200 @@
+.\" File generated from our OpenAPI spec by Scalar. Do not edit.
+.TH "DEVCLI" "1" "" "devcli" "Demo API (Scalar Galaxy) Manual"
+.SH "NAME"
+devcli \- command line interface for the Demo API (Scalar Galaxy)
+.SH "SYNOPSIS"
+.B devcli
+[\fIglobal options\fR] \fIcommand\fR [\fIsubcommand\fR] [\fIarguments\fR] [\fIoptions\fR]
+.SH "DESCRIPTION"
+devcli calls the Demo API (Scalar Galaxy) from the command line. Commands are grouped by resource, and every command prints its result to standard output in the configured format.
+.PP
+The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It's a fictional universe with fictional planets and fictional data.
+.SH "GLOBAL OPTIONS"
+.TP
+\fB\-\-base\-url\fR \fI<url>\fR
+Override the base URL for API requests.
+.TP
+\fB\-\-timeout\fR \fI<ms>\fR
+Request timeout in milliseconds.
+.TP
+\fB\-\-max\-retries\fR \fI<count>\fR
+Number of retries for retryable failures.
+.TP
+\fB\-\-format\fR \fI<format>\fR
+Output format: auto, json, jsonl, pretty, raw, toon, yaml.
+.TP
+\fB\-\-format\-error\fR \fI<format>\fR
+Error output format: auto, json, jsonl, pretty, raw, toon, yaml.
+.TP
+\fB\-\-transform\fR \fI<path>\fR
+Dot\-path transform for data output.
+.TP
+\fB\-\-transform\-error\fR \fI<path>\fR
+Dot\-path transform for error output.
+.TP
+\fB\-r\fR, \fB\-\-raw\-output\fR
+Print transformed string values without JSON quotes.
+.TP
+\fB\-\-debug\fR
+Enable SDK debug logging on standard error.
+.TP
+\fB\-\-environment\fR \fI<name>\fR
+Named environment to target: production, responds_with_your_request_data (can also be set with DEMO_API_SCALAR_GALAXY_ENVIRONMENT env var) (default: production). Cannot be combined with \-\-base\-url.
+.TP
+\fB\-\-bearer\-auth\fR \fI<value>\fR
+JWT Bearer token authentication. Can also be set with the BEARER_AUTH environment variable.
+.TP
+\fB\-\-basic\-auth\-username\fR \fI<value>\fR
+Basic HTTP authentication. Can also be set with the BASIC_AUTH_USERNAME environment variable.
+.TP
+\fB\-\-basic\-auth\-password\fR \fI<value>\fR
+Basic HTTP authentication. Can also be set with the BASIC_AUTH_PASSWORD environment variable.
+.TP
+\fB\-\-api\-key\-header\fR \fI<value>\fR
+API key request header. Can also be set with the API_KEY_HEADER environment variable.
+.TP
+\fB\-\-api\-key\-query\fR \fI<value>\fR
+API key query parameter. Can also be set with the API_KEY_QUERY environment variable.
+.TP
+\fB\-\-api\-key\-cookie\fR \fI<value>\fR
+API key browser cookie. Can also be set with the API_KEY_COOKIE environment variable.
+.TP
+\fB\-\-o\-auth2\fR \fI<value>\fR
+OAuth 2.0 authentication. Can also be set with the DEMO_API_SCALAR_GALAXY_O_AUTH2 environment variable.
+.TP
+\fB\-\-open\-id\-connect\fR \fI<value>\fR
+OpenID Connect Authentication. Can also be set with the DEMO_API_SCALAR_GALAXY_OPEN_ID_CONNECT environment variable.
+.SH "COMMANDS"
+.TP
+\fBdevcli planets list\-all\-data\fR
+Get all planets. See devcli\-planets\-list\-all\-data(1).
+.TP
+\fBdevcli planets create\fR
+Create a planet. See devcli\-planets\-create(1).
+.TP
+\fBdevcli planets retrieve\fR
+Get a planet. See devcli\-planets\-retrieve(1).
+.TP
+\fBdevcli planets update\fR
+Update a planet. See devcli\-planets\-update(1).
+.TP
+\fBdevcli planets delete\fR
+Delete a planet. See devcli\-planets\-delete(1).
+.TP
+\fBdevcli planets upload\-image\fR
+Upload an image to a planet. See devcli\-planets\-upload\-image(1).
+.TP
+\fBdevcli celestial\-bodies create\fR
+Create a celestial body. See devcli\-celestial\-bodies\-create(1).
+.TP
+\fBdevcli authentication create\-user\fR
+Create a user. See devcli\-authentication\-create\-user(1).
+.TP
+\fBdevcli authentication create\-token\fR
+Get a token. See devcli\-authentication\-create\-token(1).
+.TP
+\fBdevcli authentication list\-me\fR
+Get authenticated user. See devcli\-authentication\-list\-me(1).
+.TP
+\fBdevcli environments\fR
+List the named environments \-\-environment can select. See devcli\-environments(1).
+.TP
+\fBdevcli completion\fR
+Print a shell completion script. See devcli\-completion(1).
+.TP
+\fBdevcli login\fR
+Sign in and save credentials for later commands. See devcli\-login(1).
+.TP
+\fBdevcli logout\fR
+Forget saved credentials. See devcli\-logout(1).
+.TP
+\fBdevcli upgrade\fR
+Upgrade to the latest release, through the package manager that owns this installation when one does. See devcli\-upgrade(1).
+.TP
+\fBdevcli uninstall\fR
+Print how to remove this installation. See devcli\-uninstall(1).
+.SH "ENVIRONMENTS"
+\-\-environment selects one of these base URLs, or DEMO_API_SCALAR_GALAXY_ENVIRONMENT when the flag is not passed, and production is used when neither is. Run devcli environments to print the same list.
+.TP
+\fBproduction\fR
+https://galaxy.scalar.com (default)
+.TP
+\fBresponds_with_your_request_data\fR
+{protocol}://void.scalar.com/{path}
+.SH "FILE ARGUMENTS"
+Any command flag or credential reads its value from a file when the value begins with @. A flag shown with a <path> value uploads a file and takes its path with or without the @. The global options above are read exactly as written.
+.PP
+.RS 4
+.nf
+devcli COMMAND \-\-FLAG @./body.json    # contents of the file
+devcli COMMAND \-\-FLAG @file://./n.txt # always sent as text
+devcli COMMAND \-\-FLAG @data://./l.png # always base64\-encoded
+devcli COMMAND \-\-FLAG '\e@literal'    # a value that begins with @
+.fi
+.RE
+.SH "SHELL COMPLETION"
+devcli completion <shell> prints a completion script for bash, zsh, and fish. Load it from your shell startup file:
+.PP
+.RS 4
+.nf
+eval "$(devcli completion bash)"
+eval "$(devcli completion zsh)"
+devcli completion fish | source
+.fi
+.RE
+.SH "ENVIRONMENT"
+.TP
+\fBDEMO_API_SCALAR_GALAXY_ENVIRONMENT\fR
+Fallback for \-\-environment when the flag is not passed. Ignored when \-\-base\-url is passed, and refused beside the base URL environment variable.
+.TP
+\fBBEARER_AUTH\fR
+Fallback for \-\-bearer\-auth when the flag is not passed.
+.TP
+\fBBASIC_AUTH_USERNAME\fR
+Fallback for \-\-basic\-auth\-username when the flag is not passed.
+.TP
+\fBBASIC_AUTH_PASSWORD\fR
+Fallback for \-\-basic\-auth\-password when the flag is not passed.
+.TP
+\fBAPI_KEY_HEADER\fR
+Fallback for \-\-api\-key\-header when the flag is not passed.
+.TP
+\fBAPI_KEY_QUERY\fR
+Fallback for \-\-api\-key\-query when the flag is not passed.
+.TP
+\fBAPI_KEY_COOKIE\fR
+Fallback for \-\-api\-key\-cookie when the flag is not passed.
+.TP
+\fBDEMO_API_SCALAR_GALAXY_O_AUTH2\fR
+Fallback for \-\-o\-auth2 when the flag is not passed.
+.TP
+\fBDEMO_API_SCALAR_GALAXY_OPEN_ID_CONNECT\fR
+Fallback for \-\-open\-id\-connect when the flag is not passed.
+.SH "EXIT STATUS"
+.TP
+\fB0\fR
+The command completed successfully.
+.TP
+\fB1\fR
+The request failed for an unclassified reason. Reported as error.
+.TP
+\fB2\fR
+The command was invoked incorrectly (missing or invalid arguments).
+.TP
+\fB10\fR
+Authentication or authorization failed (HTTP 401 or 403). Reported as auth\-failed.
+.TP
+\fB11\fR
+The requested resource does not exist (HTTP 404). Reported as not\-found.
+.TP
+\fB12\fR
+The request was rate limited (HTTP 429). Reported as rate\-limited.
+.TP
+\fB13\fR
+The request was rejected (any other HTTP 4xx). Reported as client\-error.
+.TP
+\fB14\fR
+The API failed to handle the request (HTTP 5xx). Reported as server\-error.
+.TP
+\fB15\fR
+The API could not be reached, or the request timed out. Reported as connection\-error.
